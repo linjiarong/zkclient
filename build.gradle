@@ -63,3 +63,16 @@ artifacts {
     archives sourceJar
     archives javadocJar
 }
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://mgr.centaline.com/nexus/content/repositories/releases") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            snapshotRepository(url: "http://mgr.centaline.com/nexus/content/repositories/snapshots") {
+                authentication(userName: "admin", password: "admin123")
+            }
+        }
+    }
+}
